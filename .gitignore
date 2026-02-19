@@ -1,4 +1,4 @@
 # .gitignore
 dbt_project/profiles.yml
 .env
-logs/
+logs/*
