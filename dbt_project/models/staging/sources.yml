@@ -1,0 +1,46 @@
+version: 2
+sources:
+  - name: landingzone
+    database: INCREMENTALETL
+    schema: LANDINGZONE
+    tables:
+      - name: RAW_SALES
+        description: "Raw Sales data loaded incrementally monthly"
+        columns:
+          - name: INVOICENO
+            description: "Invoice number"
+          - name: STOCKCODE
+            description: "Stock code of the product"
+          - name: DESCRIPTION
+            description: "Description of the product"
+          - name: QUANTITY
+            description: "Quantity of the product sold"
+          - name: INVOICEDATE
+            description: "Date of the invoice"
+          - name: UNITPRICE
+            description: "Unit price of the product"
+          - name: CUSTOMERID
+            description: "Customer ID"
+          - name: COUNTRY
+            description: "Country of the customer"
+          - name: DISCOUNT
+            description: "Discount applied to the sale"
+          - name: PAYMENTMETHOD
+            description: "Payment method used for the sale"
+          - name: SHIPPINGCOST
+            description: "Shipping cost for the sale"
+          - name: CATEGORY
+            description: "Category of the product"
+          - name: CATEGORY
+            description: "Category of the product"
+          - name: SALESCHANNEL
+            description: "Sales channel through which the sale was made"
+          - name: RETURNSTATUS
+            description: "Return status of the sale"
+          - name: SHIPPINGPROVIDER
+            description: "Shipping provider used for the sale"
+          - name: WAREHOUSELOCATION
+            description: "Warehouse from which the product was shipped"
+          - name: ORDERPRIORITY
+            description: "Priority level of the order"
+  
