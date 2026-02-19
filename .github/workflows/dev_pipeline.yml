@@ -1,39 +1,39 @@
-name: DEV Pipeline - Load, Transform
-on:
-schedule:
-  - cron: '0 9 * * *' # Runs every day at midnight
+# name: DEV Pipeline - Load, Transform
+# on:
+# schedule:
+#   - cron: '0 9 * * *' # Runs every day at midnight
 
-workflow_dispatch:
+# workflow_dispatch:
 
-push:
-  branches:
-    - dev
+# push:
+#   branches:
+#     - dev
   
-jobs:
-  run_pipeline:
-    name: Run DEV Pipeline - Load, Transform
-    runs-on: ubuntu-latest
-    environment: dev
+# jobs:
+#   run_pipeline:
+#     name: Run DEV Pipeline - Load, Transform
+#     runs-on: ubuntu-latest
+#     environment: dev
 
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
+#     steps:
+#       - name: Checkout code
+#         uses: actions/checkout@v4
 
-      - name: Set up Python 3.11
-        uses: actions/setup-python@v5
-        with:
-          python-version: '3.11'
+#       - name: Set up Python 3.11
+#         uses: actions/setup-python@v5
+#         with:
+#           python-version: '3.11'
 
-      - name: Install dependencies
-        run: pip install -r requirements.txt
+#       - name: Install dependencies
+#         run: pip install -r requirements.txt
 
-      - name: Run Python Load New Monthly Data
-        env:
-          SNOWFLAKE_USER: ${{ secrets.SNOWFLAKE_USER }}
-          SNOWFLAKE_PASSWORD: ${{ secrets.SNOWFLAKE_PASSWORD }}
-          SNOWFLAKE_ACCOUNT: ${{ secrets.SNOWFLAKE_ACCOUNT }}
-          SNOWFLAKE_WAREHOUSE: ${{ secrets.SNOWFLAKE_WAREHOUSE }}
-          SNOWFLAKE_DATABASE: ${{ secrets.SNOWFLAKE_DATABASE }}
-          SNOWFLAKE_SCHEMA: ${{ secrets.SNOWFLAKE_SCHEMA }}
+#       - name: Run Python Load New Monthly Data
+#         env:
+#           SNOWFLAKE_USER: ${{ secrets.SNOWFLAKE_USER }}
+#           SNOWFLAKE_PASSWORD: ${{ secrets.SNOWFLAKE_PASSWORD }}
+#           SNOWFLAKE_ACCOUNT: ${{ secrets.SNOWFLAKE_ACCOUNT }}
+#           SNOWFLAKE_WAREHOUSE: ${{ secrets.SNOWFLAKE_WAREHOUSE }}
+#           SNOWFLAKE_DATABASE: ${{ secrets.SNOWFLAKE_DATABASE }}
+#           SNOWFLAKE_SCHEMA: ${{ secrets.SNOWFLAKE_SCHEMA }}
 
-        run: python/loaddata.py
+#         run: python/loaddata.py
