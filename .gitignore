@@ -1,0 +1,12 @@
+# dbt profile
+dbt_project/profiles.yml
+
+# Environment variables
+.env
+
+# Logs
+logs/
+
+# Python cache
+__pycache__/
+*.pyc
