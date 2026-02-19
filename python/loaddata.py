@@ -14,7 +14,7 @@ from dotenv import load_dotenv
 
 load_dotenv()  # Load environment variables from .env file (if exists)
 # ── Logging Setup ────────────────────────────────────────────────
-LOG_FILE = f"logs/snowflake_upload_{datetime.now().strftime('%Y%m%d_%H%M%S')}.log"
+LOG_FILE = f"D:\\snowflake-incremental-pipeline\\logs\\snowflake_upload_{datetime.now().strftime('%Y%m%d_%H%M%S')}.log"
 
 os.makedirs("logs", exist_ok=True)
 
@@ -42,7 +42,7 @@ SNOWFLAKE_CONFIG = {
 
 
 TABLE_NAME  = "RAW_SALES"
-CSV_FILE    = "python/online_sales_dataset.csv"
+CSV_FILE    = r"d:\snowflake-incremental-pipeline\python\online_sales_dataset.csv"
 DATE_COLUMN = "InvoiceDate"
 
 
