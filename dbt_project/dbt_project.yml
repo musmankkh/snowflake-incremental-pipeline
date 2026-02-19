@@ -4,9 +4,9 @@ config-version: 2
 
 profile: 'sales_pipelines'
 
-model-path: ['models']
-test-path: ['tests']
-macro-path: ['macros']
+model-paths: ['models']
+test-paths: ['tests']
+macro-paths: ['macros']
 
 target-path: 'target'
 clean-targets: ['target', 'dbt_packages']
@@ -15,8 +15,8 @@ models:
   sales_pipelines:
     staging:
       +schema: staging
-      materialized: incremental
+      +materialized: incremental
     
     processed:
       +schema: processed
-      materialized: incremental
+      +materialized: incremental

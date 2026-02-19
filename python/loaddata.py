@@ -10,24 +10,36 @@ import snowflake.connector
 from snowflake.connector.pandas_tools import write_pandas
 import logging
 from datetime import datetime
+from dotenv import load_dotenv
 
+load_dotenv()  # Load environment variables from .env file (if exists)
 # ── Logging Setup ────────────────────────────────────────────────
+LOG_FILE = f"logs/snowflake_upload_{datetime.now().strftime('%Y%m%d_%H%M%S')}.log"
+
+os.makedirs("logs", exist_ok=True)
+
+file_handler = logging.FileHandler(LOG_FILE, encoding="utf-8")
+console_handler = logging.StreamHandler()
+
 logging.basicConfig(
     level=logging.INFO,
     format="%(asctime)s [%(levelname)s] %(message)s",
-    handlers=[logging.StreamHandler()]
+    handlers=[file_handler, console_handler]
 )
+
 log = logging.getLogger(__name__)
+
 
 # ── Snowflake Config — reads from environment variables ──────────
 SNOWFLAKE_CONFIG = {
-    "user":      os.environ["SNOWFLAKE_USER"],
-    "password":  os.environ["SNOWFLAKE_PASSWORD"],
-    "account":   os.environ["SNOWFLAKE_ACCOUNT"],
-    "warehouse": os.environ["SNOWFLAKE_WAREHOUSE"],
-    "database":  os.environ["SNOWFLAKE_DATABASE"],
-    "schema":    os.environ["SNOWFLAKE_SCHEMA"]
+    "user":      os.getenv("SNOWFLAKE_USER"),
+    "password":  os.getenv("SNOWFLAKE_PASSWORD"),
+    "account":   os.getenv("SNOWFLAKE_ACCOUNT"),
+    "warehouse": os.getenv("SNOWFLAKE_WAREHOUSE"),
+    "database":  os.getenv("SNOWFLAKE_DATABASE"),
+    "schema":    os.getenv("SNOWFLAKE_SCHEMA")
 }
+
 
 TABLE_NAME  = "RAW_SALES"
 CSV_FILE    = "python/online_sales_dataset.csv"

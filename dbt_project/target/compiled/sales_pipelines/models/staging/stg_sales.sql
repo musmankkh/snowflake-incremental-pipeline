@@ -1,15 +1,8 @@
-{{
-    config(
-        materialized='incremental',
-        unique_key=['invoice_no','stock_code'],
-        incremental_strategy='merge',
-        on_schema_change='sync_all_columns'
-    )
-}}
+
 
 WITH raw_data AS (
     SELECT * 
-    FROM {{ source('landingzone', 'RAW_SALES') }}
+    FROM INCREMENTALETL.LANDINGZONE.RAW_SALES
 ),
 
 staged AS (
@@ -64,11 +57,10 @@ validated AS (
 SELECT *
 FROM validated
 
-{% if is_incremental() %}
+
 WHERE NOT EXISTS (
     SELECT 1
-    FROM {{ this }} t
+    FROM INCREMENTALETL._staging.stg_sales t
     WHERE t.invoice_year  = validated.invoice_year
       AND t.invoice_month = validated.invoice_month
 )
-{% endif %}

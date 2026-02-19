@@ -1,0 +1,36 @@
+2026-02-19 10:31:36,774 [INFO] ============================================================
+2026-02-19 10:31:36,774 [INFO] 🚀 Starting Snowflake Monthly Incremental Upload
+2026-02-19 10:31:36,774 [INFO] ============================================================
+2026-02-19 10:31:36,774 [INFO] Connecting to Snowflake...
+2026-02-19 10:31:36,776 [INFO] Snowflake Connector for Python Version: 4.3.0, Python Version: 3.10.11, Platform: Windows-10-10.0.26200-SP0
+2026-02-19 10:31:36,776 [INFO] Connecting to GLOBAL Snowflake domain
+2026-02-19 10:31:37,122 [INFO] Found credentials in shared credentials file: ~/.aws/credentials
+2026-02-19 10:31:38,738 [INFO] ✅ Connected successfully!
+2026-02-19 10:31:39,074 [INFO] ✅ Table 'RAW_SALES' ready.
+2026-02-19 10:31:39,074 [INFO] 📂 Loading dataset from: python/online_sales_dataset.csv
+2026-02-19 10:31:39,473 [INFO] ✅ Dataset loaded: 49782 rows | Date range: 2020-01-01 00:00:00 → 2025-09-05 05:00:00
+2026-02-19 10:31:39,697 [INFO] 📦 Months already in Snowflake: {(2020, 3), (2020, 9), (2021, 3), (2020, 6), (2020, 12), (2020, 2), (2021, 2), (2020, 5), (2020, 11), (2020, 8), (2020, 4), (2020, 1), (2020, 7), (2021, 1), (2020, 10)}
+2026-02-19 10:31:39,736 [INFO] ⏭️  SKIP   | 2020-01 (January 2020) — already loaded (744 rows)
+2026-02-19 10:31:39,736 [INFO] ⏭️  SKIP   | 2020-02 (February 2020) — already loaded (696 rows)
+2026-02-19 10:31:39,736 [INFO] ⏭️  SKIP   | 2020-03 (March 2020) — already loaded (744 rows)
+2026-02-19 10:31:39,738 [INFO] ⏭️  SKIP   | 2020-04 (April 2020) — already loaded (720 rows)
+2026-02-19 10:31:39,739 [INFO] ⏭️  SKIP   | 2020-05 (May 2020) — already loaded (744 rows)
+2026-02-19 10:31:39,740 [INFO] ⏭️  SKIP   | 2020-06 (June 2020) — already loaded (720 rows)
+2026-02-19 10:31:39,740 [INFO] ⏭️  SKIP   | 2020-07 (July 2020) — already loaded (744 rows)
+2026-02-19 10:31:39,742 [INFO] ⏭️  SKIP   | 2020-08 (August 2020) — already loaded (744 rows)
+2026-02-19 10:31:39,742 [INFO] ⏭️  SKIP   | 2020-09 (September 2020) — already loaded (720 rows)
+2026-02-19 10:31:39,743 [INFO] ⏭️  SKIP   | 2020-10 (October 2020) — already loaded (744 rows)
+2026-02-19 10:31:39,743 [INFO] ⏭️  SKIP   | 2020-11 (November 2020) — already loaded (720 rows)
+2026-02-19 10:31:39,744 [INFO] ⏭️  SKIP   | 2020-12 (December 2020) — already loaded (744 rows)
+2026-02-19 10:31:39,744 [INFO] ⏭️  SKIP   | 2021-01 (January 2021) — already loaded (744 rows)
+2026-02-19 10:31:39,745 [INFO] ⏭️  SKIP   | 2021-02 (February 2021) — already loaded (672 rows)
+2026-02-19 10:31:39,745 [INFO] ⏭️  SKIP   | 2021-03 (March 2021) — already loaded (744 rows)
+2026-02-19 10:31:39,746 [INFO] ⬆️  UPLOAD | 2021-04 (April 2021) — 720 rows uploading...
+2026-02-19 10:31:42,180 [INFO] ✅  DONE   | 2021-04 (April 2021) — 720 rows uploaded successfully!
+2026-02-19 10:31:42,180 [INFO] 🛑 STOPPED | One month per run. Next month uploads tomorrow.
+2026-02-19 10:31:42,188 [INFO] ============================================================
+2026-02-19 10:31:42,189 [INFO] 📊 UPLOAD SUMMARY
+2026-02-19 10:31:42,189 [INFO]    ✅ Uploaded : 1 month(s)
+2026-02-19 10:31:42,189 [INFO]    ⏭️  Skipped  : 15 month(s) (already existed)
+2026-02-19 10:31:42,189 [INFO] ============================================================
+2026-02-19 10:31:42,599 [INFO] 🔒 Snowflake connection closed.

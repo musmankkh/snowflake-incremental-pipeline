@@ -1,15 +1,8 @@
-{{
-    config(
-        materialized='incremental',
-        unique_key=['invoice_no','stock_code'],
-        incremental_strategy='merge',
-        on_schema_change='sync_all_columns'
-    )
-}}
+
 
 WITH staging AS (
     SELECT * 
-    FROM {{ ref('stg_sales') }}
+    FROM INCREMENTALETL._staging.stg_sales
 ),
 
 deduped AS (
@@ -67,11 +60,10 @@ cleaned AS (
 SELECT *
 FROM cleaned
 
-{% if is_incremental() %}
+
 WHERE NOT EXISTS (
     SELECT 1
-    FROM {{ this }} t
+    FROM INCREMENTALETL._processed.processed_sales t
     WHERE t.invoice_year  = cleaned.invoice_year
       AND t.invoice_month = cleaned.invoice_month
 )
-{% endif %}

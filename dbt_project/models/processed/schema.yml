@@ -1,47 +1,55 @@
 version: 2
+
 models:
   - name: stg_sales
     description: "Staging model for sales data"
     columns:
-    - name : invoice_no
-      description: "Invoice number"
-      tests:
-        - not_null
-    - name: invoice_no
-      description: "Invoice number"
-      tests:
-        - not_null
-    - name: data_quality_flag
-      description: "Flag indicating data quality issues"
-    - name: processed_sales
-      description: "Processed sales amount after applying discounts and shipping costs"
+      - name: invoice_no
+        description: "Invoice number"
+        tests:
+          - not_null
+
+      - name: data_quality_flag
+        description: "Flag indicating data quality issues"
+
+      - name: processed_sales
+        description: "Processed sales amount after applying discounts and shipping costs"
+
   - name: processed_sales
-    description: "final model for processed sales data
+    description: "Final model for processed sales data"
     columns:
-    - name: invoice_no
-      description: "Invoice number"
-      tests:
-        - not_null
-        - unique
-    - name: invoice_date
-      description: "Date of the invoice"
-      test:
-        - not_null
-    - name: quantity
-      description: "Quantity of the product sold"
-      tests:
-        - not_null
-    - name: unit_price
-      description: "Unit price of the product"
-      tests:
-        - not_null
-    - name: gross_amount
-      description: "Gross amount before discounts and shipping costs"
-    - name: net_amount
-      description: "Net amount after applying discounts and shipping costs"
-    - name: total_amount
-      description: "Total amount including taxes"
-    - name: is_returned
-      description: "Flag indicating if the sale was returned"
-    - name: is_guest_customer
-      description: "Flag indicating if the customer is a guest"
+      - name: invoice_no
+        description: "Invoice number"
+        tests:
+          - not_null
+          - unique
+
+      - name: invoice_date
+        description: "Date of the invoice"
+        tests:
+          - not_null
+
+      - name: quantity
+        description: "Quantity of the product sold"
+        tests:
+          - not_null
+
+      - name: unit_price
+        description: "Unit price of the product"
+        tests:
+          - not_null
+
+      - name: gross_amount
+        description: "Gross amount before discounts and shipping costs"
+
+      - name: net_amount
+        description: "Net amount after applying discounts and shipping costs"
+
+      - name: total_amount
+        description: "Total amount including taxes"
+
+      - name: is_returned
+        description: "Flag indicating if the sale was returned"
+
+      - name: is_guest_customer
+        description: "Flag indicating if the customer is a guest"
