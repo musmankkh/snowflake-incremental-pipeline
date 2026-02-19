@@ -1,4 +1,12 @@
-# .gitignore
+# dbt profile
 dbt_project/profiles.yml
+
+# Environment variables
 .env
-logs/*
+
+# Logs
+logs/
+
+# Python cache
+__pycache__/
+*.pyc
